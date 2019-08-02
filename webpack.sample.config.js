@@ -4,33 +4,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-/**
- * The Webpack Config.
- * This is barebones, so feel free to add to this to make your life a little easier.
- */
+const distDir = './dist';
+
 const settings = {
 	context: __dirname,
 	target: 'web',
 	entry: {
-		'scripts': path.resolve(__dirname, `./build/index.js`),
+		'scripts': path.resolve(__dirname, `./build/index.js`)
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.scss'],
 	},
 	output: {
-		path: path.resolve(__dirname, `./sample/`),
-		publicPath: `/`,
+		path: path.resolve(__dirname, distDir),
+		publicPath: `/dist`,
 		filename: '[name].bundle.js',
 		chunkFilename: '[name].bundle.js',
 	},
 	module: {
-		rules: [{
+		rules: [
+			{
 				test: /\.(css|scss)$/,
-				use: [{
+				use: [
+					{
 						loader: MiniCssExtractPlugin.loader,
 					},
 					{
-						loader: 'css-loader',
+						loader: 'css-loader'
 					},
 					{
 						loader: 'postcss-loader',
@@ -74,6 +74,16 @@ const settings = {
 		}),
 	],
 	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					test: /node_modules/,
+					chunks: 'initial',
+					name: 'vendor',
+					enforce: true
+				}
+			}
+		},
 		minimizer: [
 			new TerserPlugin({
 				parallel: true,
@@ -83,7 +93,7 @@ const settings = {
 				}
 			}),
 			new OptimizeCSSAssetsPlugin({})
-		],
+		]
 	}
 };
 
