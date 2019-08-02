@@ -70,7 +70,7 @@ const settings = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: 'styles.css',
+			filename: 'styles.bundle.css',
 		}),
 	],
 	optimization: {
