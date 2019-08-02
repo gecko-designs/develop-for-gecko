@@ -10,7 +10,7 @@ The end result should look and function just like the application included in th
 
 Sample App: https://gecko-designs.github.io/develop-for-gecko/sample/
 
-You don't need to develop any of the signup/login functionality, a user should be able to continue to the Products list by submitting to form, they don't need to authenticate with any service.
+You don't need to develop any of the signup/login functionality, a user should be able to continue to the Products list by submitting the form, they don't need to authenticate with any service.
 
 You're free to use any solutions you see fit, there are plenty of intentional errors ranging from basic fixes to more complex problems that aren't readily apparent but easy to remedy.
 
