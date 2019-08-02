@@ -20,6 +20,10 @@ Show us what you got!
 
 Start by cloning this repo. Explore the code, there are plenty of issues (placed intentionally) for you to fix.
 
+This is the API endpoint you can use for pulling up a list of Products:
+
+* https://5d445466d823c30014771642.mockapi.io/api/v1/products
+
 Use GitHub pages to host your final build.
 
 ## What We're Looking For
